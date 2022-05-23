@@ -1,0 +1,48 @@
+.headerContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Cantarell", sans-serif;
+  padding: 0em 1em;
+}
+
+.logoContainer {
+  margin: 0.3em 0.25rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logoContainer span {
+  margin-left: 0.24em;
+  font-weight: bold;
+  font-size: large;
+}
+
+.darkContainer {
+  background-color: #1a1b1e;
+  border-bottom: 1px solid #2b2c2f;
+}
+
+.lightContainer {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.toggleColorSchemeContainer {
+  margin-left: auto;
+}
+
+.toggleColorSchemeContainer button {
+  border-radius: 35px;
+}
+
+.drawerButton {
+  display: none;
+}
+@media screen and (max-width: 1100px) {
+  .drawerButton {
+    display: initial;
+  }
+}
