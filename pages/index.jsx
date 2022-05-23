@@ -1,36 +1,29 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { allDocs } from 'contentlayer/generated'
-
-export async function getStaticProps() {
-  const docs = allDocs.sort()
-  return { props: { docs } }
-}
-
-function DocsCard(docs) {
-  return (
-    <div className="mb-6">
-      <h2 className="text-lg">
-        <Link href={docs.url}>
-          <a className="text-blue-700 hover:text-blue-900">{docs.title}</a>
-        </Link>
-      </h2>
-    </div>
-  )
-}
+import Image from 'next/image'
+import DenoCord from '../public/images/logo.png'
+import styles from '../styles/Home.module.css'
 
 export default function Home({ docs }) {
   return (
-    <div className="mx-auto max-w-2xl py-16 text-center">
+    <div >
       <Head>
         <title>Denocord - DenoCord</title>
       </Head>
+      <div>
+        <div className={styles["imageContainer"]}>
 
-      <h1 className="mb-8 text-3xl font-bold">Contentlayer Blog Example</h1>
+          <img src="/images/logo.png" />
 
-      {docs.map((docs, idx) => (
-        <DocsCard key={idx} {...docs} />
-      ))}
+        </div>
+      </div>
+      <div className={styles["content"]}>
+        <h3>
+          This Site contains the latest documentation for DenoCord.
+        </h3>
+        Use The Sidebar or The Drawer to navigate between pages.
+      </div>
     </div>
   )
 }
