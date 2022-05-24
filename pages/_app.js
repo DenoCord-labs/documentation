@@ -17,7 +17,7 @@ Router.events.on("routeChangeError", () => Nprogress.done())
 
 export default function App(props) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState('light');
+  const [colorScheme, setColorScheme] = useState('dark');
   const router = useRouter()
   useEffect(() => {
     if (localStorage.getItem('theme')) {

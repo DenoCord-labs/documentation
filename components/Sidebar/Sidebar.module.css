@@ -15,6 +15,9 @@
   background-color: #f5f5f5;
   color: #1a202c;
 }
+.lightContainer a {
+  color: #1a202c;
+}
 .unorderedList {
   list-style-type: none;
   padding-left: 0;
@@ -33,11 +36,15 @@
   text-decoration: none;
 }
 .docsLink:focus,
-.active {
+.darkActive {
   background-color: #2d3748;
 }
 .docsLink:hover {
-  background-color: #1a202c;
+  font-weight: bolder;
+}
+.docsLink:focus,
+.lightActive:focus {
+  background-color: #edf2f7;
 }
 
 @media screen and (max-width: 1100px) {

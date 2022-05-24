@@ -55,9 +55,10 @@ export function Sidebar() {
 }
 
 function LinkComponent({ colorScheme, href, title, active }) {
+
     return (
         <Link href={href} passHref >
-            <a className={`${styles[colorScheme === "dark" ? "darkLink" : "lightLink"]} ${styles['docsLink']} ${styles[active ? "active" : ""]}`} >
+            <a className={`${styles[colorScheme === "dark" ? "darkLink" : "lightLink"]} ${styles['docsLink']} ${active && styles[colorScheme === "dark" ? "darkActive" : "lightActive"]}`} >
                 {title}
             </a>
 
