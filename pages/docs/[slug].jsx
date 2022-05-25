@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { allDocs } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { H3, H1, H2, H4, H5, H6 } from '../../components/Common'
+import { H3, H1, H2, H4, H5, H6,Callout } from '../../components/Common'
 import styles from './Slug.module.css'
 const Components = {
     H1,
@@ -11,6 +11,7 @@ const Components = {
     H4,
     H5,
     H6,
+    Callout
 }
 export async function getStaticPaths() {
     const paths = allDocs.map((doc) => doc.url)
@@ -35,7 +36,7 @@ const DocLayout = ({ doc }) => {
     return (
         <>
             <Head>
-                <title>{doc.title}</title>
+                <title>{doc.title} - Denocord</title>
             </Head>
             <article className={`${styles["content"]}`}>
                 <Component {...{ components: Components }} />

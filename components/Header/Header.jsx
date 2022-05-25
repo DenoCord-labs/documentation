@@ -22,14 +22,7 @@ export function Header() {
                         <span>DenoCord</span>
                     </div>
                 </Link>
-                <div className={styles['toggleColorSchemeContainer']}>
-                    <Button variant="subtle" onClick={() => toggleColorScheme(!colorScheme)}>
-                        {
-                            dark ? <BsFillMoonFill size={18} /> : <BsFillSunFill size={18} />
-                        }
-                    </Button>
-                </div>
-                <div>
+                <div className={styles['toggleColorSchemeContainer']} >
                     <Link href="https://github.com/denocord-labs/denocordts" >
                         <a target="_blank">
                             <Button variant="subtle">

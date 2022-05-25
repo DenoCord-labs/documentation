@@ -35,15 +35,16 @@
   color: white;
   text-decoration: none;
 }
-.docsLink:focus,
 .darkActive {
   background-color: #2d3748;
 }
-.docsLink:hover {
+.docsLink:hover
+.darkActive {
   font-weight: bolder;
+  background-color: #1a202c;
 }
-.docsLink:focus,
-.lightActive:focus {
+.docsLink:focus
+.lightActive {
   background-color: #edf2f7;
 }
 

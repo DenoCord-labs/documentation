@@ -1,0 +1,69 @@
+---
+title: Getting Started
+description: Creating Your First Bot Using DenoCord.
+---
+
+Lets Create a Basic Bot using DenoCord
+
+```ts
+import { Client } from "https://deno.land/x/denocordts/mod.ts";
+
+const client = new Client({
+  token: "TOKEN", // enter your bot's token here
+  clientId: "ID", // enter your bot's id here
+  intents: ["Guilds", "GuildMessages", "GuildMembers", "MessageContent"], // message content intent is required for the bot to get the content of the message
+});
+
+client.on("Ready", () => {
+  console.log(`Logged in as ${client.user.username} at ${new Date()}`);
+});
+
+client.on("MessageCreate", async (message) => {
+  if (message.content.toLowerCase() === "!ping") {
+    await message.reply({ content: `Pong!\n${client.ping}ms` });
+  }
+});
+```
+
+<H3>Understanding the Code</H3>
+
+```ts
+import { Client } from "https://deno.land/x/denocordts/mod.ts";
+```
+
+> We're Importing the Client class from the DenoCord library. Client is the main class that handles all the events. It takes 3 arguments
+>
+> - token &rarr; The Token of the bot which is required to interact with the discord's api. You can get one from [here](discord.com/developers/applications)
+> - clientId &rarr; The id of the bot.
+> - intents &rarr; The intents, it takes in a list of intents. You'll only recieve events whose intents are passed to the client. For Example: `MessageContent` intent will provide you with the `content` property on `Message` class.
+
+```ts
+const client = new Client({
+  token: "TOKEN", // enter your bot's token here
+  clientId: "ID", // enter your bot's id here
+  intents: ["Guilds", "GuildMessages", "GuildMembers", "MessageContent"], // message content intent is required for the bot to get the content of the message
+});
+```
+> We're instantiating Client with the proper values. If you provide a wrong token the process will exit showing you the relevant error message.
+
+```ts
+client.on("Ready", () => {
+  console.log(`Logged in as ${client.user.username} at ${new Date()}`);
+});
+```
+> We're listening to the `Ready` event, this event will be emitted when we successfully connect with discord's api. `client.user` will contain data about the client and will be populate after client is ready.
+
+```ts
+client.on("MessageCreate", async (message) => {
+  if (message.content.toLowerCase() === "!ping") {
+    await message.reply({ content: `Pong!\n${client.ping}ms` });
+  }
+});
+```
+
+> Here we're listening to the `MessageCreate` event, this event will be emitted when a message in sent in any channel which bot can see. This event will not be emitted when message is sent by the client/bot (thats the expected behaviour lol.). The `MessageContent` intent will return a `content` string which can be excessed by `message.content`. Here we're checking if message's content is `!ping` if it is reply with a message.
+
+
+Output:
+
+![image](/docs/pong.png)

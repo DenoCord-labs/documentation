@@ -1,0 +1,56 @@
+---
+title: Embeds
+description: Learn about embeds and how to create them using Denocord.
+---
+
+If you've used Discord for a white you should've seen some special messages sent by users with a `Bot` `✅ Bot` tag.
+
+They look something like this.
+
+![embed](/docs/embed.png)
+
+They're called embeds.
+
+Lets Create one using DenoCord
+
+```ts
+import { Embed } from "https://deno.land/x/denocordts/mod.ts";
+
+const embed = new Embed()
+  .setTitle("DenoCord")
+  .setDescription("An Object Oriented Discord Api Wrapper for Deno.")
+  .setColor("RANDOM")
+  .setTimestamp();
+
+client.on("MessageCreate", async (message) => {
+  if (message.content === "!info") {
+    await message.reply({ embeds: [embed] });
+  }
+});
+```
+
+
+Output:
+
+![outputEmbed](/docs/embedDenocord.png)
+
+
+
+<H2>Methods Available on Embed class</H2>
+- setTitle &rarr; Takes in a string and set it as embed's title
+- setDescription &rarr; Takes in a string and set it as embed's description
+- setAuthor &rarr; Takes in an object with `name` as required parameter and `url`,`proxy_icon_url`,`icon_url` as optional arguments, it will set the name and icon of embed's author to the provided values.
+- setColor &rarr; Takes in hex code of a color or name of color or `RANDOM` and set the color of the embed to the provided value, `RANDOM` will generate a random color each time.
+- setImage &rarr; Takes in a url of an image and set the image inside the embed. This will not show any image if the provided url returns a 404
+- setThumbnail &rarr; Same as `setImage` but it sets the thumbnail of the embed.
+- addField &rarr; Takes in 2 required(name,value) and one optional(inline) parameter, it will add new field in the embed.
+- addFields &rarr; Takes in an array of object with 2 required(name,value) and one optional(inline) parameter and add the field in the embed.
+- setTimestamp &rarr; Takes no parameter and set the timestamp on the embed, this timestamp will be different as per different timezones and each user will see the time respected to their timezones.
+- setFooter &rarr; Takes in an object with 2 only required(text) and two optional(icon_url,proxy_icon_url) properties, it will set the footer of the embed.
+
+<Callout variant="info">
+    <H3> Points to Keep in mind when working with embeds </H3>
+    - Embeds can have maximum 25 fields
+    - If you've added footer and timestamp at the same time they will be rendered in the same line and timestamp will be at second position. They will be separated by `|` or `•`
+
+</Callout>

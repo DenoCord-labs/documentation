@@ -34,15 +34,15 @@ hue-6-2: #e6c07b
 
 */
 
-pre code.hljs {
+pre>code.hljs {
   display: block;
   overflow-x: auto;
   padding: 1em;
 }
 code {
   background: #282c34;
-  padding: 1px 5px;
-  border-radius: 20px;
+  border-radius: 10px;
+  padding:5px
 }
 code.hljs {
   padding: 3px 5px;
