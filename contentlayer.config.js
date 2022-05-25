@@ -25,6 +25,11 @@ export const Docs = defineDocumentType(() => ({
             description: "The meta image of the document",
             required: false,
             default: "/images/logo.png"
+        },
+        order: {
+            type: "number",
+            description: "The Number at which this doc will be rendered",
+            required: true
         }
     },
     computedFields: {
@@ -32,6 +37,10 @@ export const Docs = defineDocumentType(() => ({
             type: "string",
             resolve: (post) => `/docs/${post._raw.flattenedPath}`
         },
+        createdAt: {
+            type: "string",
+            resolve: () => new Date().getTime()
+        }
 
     }
 }))

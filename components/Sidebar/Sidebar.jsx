@@ -18,7 +18,7 @@ export function Sidebar() {
         <aside className={`${styles['container']} ${styles[colorScheme === "dark" ? "darkContainer" : "lightContainer"]}`} >
 
             {
-                allDocs ? allDocs.map(doc => {
+                allDocs ? allDocs.sort((a, b) => a.order > b.order).map(doc => {
                     return (
                         <LinkComponent key={doc._id} colorScheme={colorScheme} href={doc.url} title={doc.title} active={router.asPath === doc.url} />
                     )
@@ -41,7 +41,7 @@ export function Sidebar() {
                         <FcSearch size={25} />
                     </Button>
                     {
-                        allDocs ? allDocs.map(doc => {
+                        allDocs ? allDocs.sort((a, b) => a.order > b.order).map(doc => {
                             return (
                                 <LinkComponent key={doc._id} colorScheme={colorScheme} href={doc.url} title={doc.title} active={router.asPath === doc.url} />
                             )
