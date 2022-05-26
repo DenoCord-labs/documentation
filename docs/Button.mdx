@@ -1,0 +1,61 @@
+---
+title: Buttons
+description: Create Buttons Using DenoCord
+order: 6
+---
+
+From last few months you should've seen some bots sending Buttons with their messages.
+
+They look something like this
+
+![buttons](/docs/buttonFromDiscord.png)
+
+Source: Discord
+
+Lets Create Buttons using DenoCord
+
+<Callout variant="danger">
+  Every Select Menu and Button must be added in an `ActionRow`, ActionRow acts
+  as a container for the components. An Action row can have only 1 Select Menu
+  or 5 Buttons at the same time.
+</Callout>
+
+```ts
+import { ActionRow, Button } from "https://deno.land/x/denocordts/mod.ts";
+
+const row = new ActionRow().addComponents(
+  new Button().setCustomId("button").setLabel("Test").setStyle("Primary")
+);
+
+await message.reply({ components: [row] });
+```
+
+Output:
+
+![Button-With-Test-Label](/docs/buttonTest.png)
+
+<H3> Methods on Button Class </H3>
+
+> - setLabel &rarr; Used to set the label on the button
+> - setStyle &rarr; Used to set button's style. Available Options: `Primary`,`Success`,`Danger`,`Secondary` and `Link`.
+> - setDisabled &rarr; Used to Disable the button.
+> - setEmoji &rarr; Used to set Emoji on the button. (This api will be changed soon.)
+> - setCustomId &rarr; Used to set the custom id on the button.
+
+<H3> How to Recieve Button Interactions </H3>
+
+When a button is clicked, Your bot will recieve an interaction, you can listen to the interaction with the ComponentCollector.
+
+```ts
+/**
+ * snip
+ */
+
+await message.reply({ components: [row] });
+
+const collector = message.channel.createMessageComponentsCollector();
+collector.on("buttonInteraction", async (e) => {
+  await e.reply({ content: "Thanks for clicking the button." });
+});
+```
+

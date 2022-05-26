@@ -5,8 +5,8 @@ export function Callout({ variant = 'info', children }) {
             backgroundColor: '#292724',
         },
         danger: {
-            borderLeft: '5px solid #f44336',
-            backgroundColor: 'rgb(253, 236, 234)'
+            borderLeft: '5px solid #f44336', backgroundColor: '#292724',
+
         }
     }
     return (
@@ -14,7 +14,7 @@ export function Callout({ variant = 'info', children }) {
             style={{
                 padding: '1rem 2rem',
                 margin: '1.5rem auto',
-                borderRadius:20,
+                borderRadius: 20,
                 ...variantStyles[variant]
             }}>
             {children}

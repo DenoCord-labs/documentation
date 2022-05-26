@@ -1,0 +1,33 @@
+---
+title: Select Menu
+description: Create Select Menu using DenoCord.
+order: 7
+---
+
+Select Menu allows the users to select an option out of 25 options.
+
+![Select-Menu](/docs/selectMenuDiscord.png)
+
+Lets Create Select Menu using DenoCord.
+
+```ts
+import { ActionRow, SelectMenu } from "https://deno.land/x/denocordts/mod.ts";
+
+const row = new ActionRow().addComponents(
+  new SelectMenu().setCustomId("testMenu").setOptions([
+    {
+      label: "Testing",
+      value: "test",
+      description: "An option for testing",
+    },
+  ])
+);
+
+await message.reply({ components: [row] });
+```
+
+Output:
+
+![Select-Menu-Created-Using-Denocord](/docs/selectMenuResult.png)
+
+Interactions can be received in the same way as buttons. Read [here](/docs/Button#how-to-recieve-button-interactions)

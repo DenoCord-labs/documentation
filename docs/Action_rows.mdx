@@ -1,0 +1,27 @@
+---
+title: Action Rows
+description: Know more about Action Rows
+order: 5
+---
+
+Action rows act as a container for components.
+An Action row can have only 1 SelectMenu and 5 Buttons at the same time.You can send Maximum 5 action rows in a single message.
+
+Creating an ActionRow:
+
+
+```ts
+import { ActionRow } from "https://deno.land/x/denocordts/mod.ts" 
+
+
+const row  = new ActionRow()
+
+```
+
+<H3> Methods on Action Row Class </H3>
+
+> - addComponents &rarr; Takes in instances of Button or SelectMenu.
+> - removeAllComponents &rarr; Removes all components from ActionRow.
+
+
+Read Discord's Documentation on ActionRow [here](https://discord.com/developers/docs/interactions/message-components#action-rows).

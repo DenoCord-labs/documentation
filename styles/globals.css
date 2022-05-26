@@ -3,6 +3,9 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Cantarell", sans-serif;
+  /* color: white !important; */
+}
+body:not(code,pre){
   color: white !important;
 }
 

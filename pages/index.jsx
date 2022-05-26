@@ -1,11 +1,7 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import { allDocs } from 'contentlayer/generated'
-import Image from 'next/image'
-import DenoCord from '../public/images/logo.png'
 import styles from '../styles/Home.module.css'
-
-export default function Home({ docs }) {
+import { Footer } from '../components'
+export default function Home() {
   return (
     <>
       <Head>
@@ -25,6 +21,7 @@ export default function Home({ docs }) {
           <p className={styles['drawerMessage']}>
             Click on Burger Icon to open the Drawer. To search for a page, click on the Search Icon in the Drawer.
           </p>
+          <Footer />
         </div>
       </div>
     </>

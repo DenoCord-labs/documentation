@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import { allDocs } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { H3, H1, H2, H4, H5, H6,Callout } from '../../components/Common'
+import { H3, H1, H2, H4, H5, H6, Callout } from '../../components/Common'
 import styles from './Slug.module.css'
+import { Footer } from '../../components'
 const Components = {
     H1,
     H2,
@@ -34,14 +34,16 @@ export async function getStaticProps({ params }) {
 const DocLayout = ({ doc }) => {
     const Component = useMDXComponent(doc.body.code)
     return (
-        <>
+        <div className={styles['container']}>
             <Head>
                 <title>{doc.title} - Denocord</title>
             </Head>
             <article className={`${styles["content"]}`}>
                 <Component {...{ components: Components }} />
             </article>
-        </>
+            <Footer />
+
+        </div>
     )
 }
 

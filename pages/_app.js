@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MantineProvider, ColorSchemeProvider } from '@mantine/core';
-import { Header, Sidebar } from '../components'
+import { Header, Sidebar, Footer } from '../components'
 import { useEffect } from 'react'
 import styles from '../styles/app.module.css'
 import '../styles/globals.css';
