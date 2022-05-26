@@ -10,7 +10,7 @@ export function Footer() {
             <span>
                 MIT {new Date().getFullYear()} © DenoCord-Labs.
             </span>
-            <a target="_blank" href={asPath === "/" ? `${BASE_PAGE_URL}/pages/index.jsx` : `${BASE_PAGE_URL}${asPath}.mdx`} >
+            <a target="_blank" rel="noreferrer" href={asPath === "/" ? `${BASE_PAGE_URL}/pages/index.jsx` : `${BASE_PAGE_URL}${asPath}.mdx`} >
                 Edit This Page on Github
             </a>
         </div>
