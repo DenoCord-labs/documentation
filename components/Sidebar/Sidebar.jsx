@@ -11,6 +11,8 @@ export function Sidebar() {
     const { colorScheme } = useMantineColorScheme()
     const { state: { open }, dispatch } = useContext(DrawerContext)
     const router = useRouter()
+    const docs = allDocs.sort((a, b) => a.order > b.order)
+
     useEffect(() => {
 
     }, [router.pathname, router.route])
@@ -18,7 +20,7 @@ export function Sidebar() {
         <aside className={`${styles['container']} ${styles[colorScheme === "dark" ? "darkContainer" : "lightContainer"]}`} >
 
             {
-                allDocs ? allDocs.sort((a, b) => a.order > b.order).map(doc => {
+                docs ? docs.map(doc => {
                     return (
                         <LinkComponent key={doc._id} colorScheme={colorScheme} href={doc.url} title={doc.title} active={router.asPath === doc.url} />
                     )
@@ -41,7 +43,7 @@ export function Sidebar() {
                         <FcSearch size={25} />
                     </Button>
                     {
-                        allDocs ? allDocs.sort((a, b) => a.order > b.order).map(doc => {
+                        docs ? docs.map(doc => {
                             return (
                                 <LinkComponent key={doc._id} colorScheme={colorScheme} href={doc.url} title={doc.title} active={router.asPath === doc.url} />
                             )
