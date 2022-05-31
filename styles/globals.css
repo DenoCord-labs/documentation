@@ -5,7 +5,7 @@ body {
   font-family: "Cantarell", sans-serif;
   /* color: white !important; */
 }
-body:not(code,pre){
+body:not(code, pre) {
   color: white !important;
 }
 
@@ -37,7 +37,7 @@ hue-6-2: #e6c07b
 
 */
 
-pre>code.hljs {
+pre > code.hljs {
   display: block;
   overflow-x: auto;
   padding: 1em;
@@ -45,7 +45,7 @@ pre>code.hljs {
 code {
   background: #282c34;
   border-radius: 10px;
-  padding:5px
+  padding: 5px;
 }
 code.hljs {
   padding: 3px 5px;

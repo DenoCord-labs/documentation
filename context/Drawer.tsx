@@ -1,4 +1,4 @@
-import { Reducer } from "react";
+import { FC, PropsWithChildren, Reducer } from "react";
 import { Dispatch } from "react";
 import { createContext, useReducer } from "react";
 
@@ -27,7 +27,7 @@ export const DrawerContext = createContext<{
   dispatch: Dispatch<Action>;
 }>({ state: { open: false }, dispatch: () => {} });
 
-export const DrawerProvider = ({ children }) => {
+export const DrawerProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     open: false
   });
