@@ -3,44 +3,77 @@ import {
   useMantineColorScheme,
   Drawer,
   Button,
-  ColorScheme
+  ColorScheme,
+  Box,
+  LoadingOverlay,
+  Accordion
 } from "@mantine/core";
-import { openSpotlight, closeSpotlight } from "@mantine/spotlight";
-import { allDocs } from "contentlayer/generated";
+import { openSpotlight } from "@mantine/spotlight";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { DrawerContext } from "../../context/Drawer";
 import { FcSearch } from "react-icons/fc";
+
+
+type Routes = {
+  name: string,
+  href?: string,
+  children: [] | Omit<Routes, "children">[]
+}
+
 export function Sidebar() {
+
   const { colorScheme } = useMantineColorScheme();
   const {
     state: { open },
     dispatch
   } = useContext(DrawerContext);
   const router = useRouter();
-  const docs = allDocs.sort((a, b) => a.order - b.order);
+  const [routes, setRoutes] = useState<Routes[]>([])
+  useEffect(() => {
 
-  useEffect(() => {}, [router.pathname, router.route]);
+    async function fetchData() {
+      const data = await fetch("/routes/data.json").catch(err => { })
+      if (data) {
+        const routesToRender = await data.json()
+        setRoutes(routesToRender["routes"])
+      }
+    }
+    fetchData()
+
+  }, [router.pathname, router.route]);
   return (
     <aside
-      className={`${styles["container"]} ${
-        styles[colorScheme === "dark" ? "darkContainer" : "lightContainer"]
-      }`}
+      className={`${styles["container"]} ${styles[colorScheme === "dark" ? "darkContainer" : "lightContainer"]
+        }`}
     >
-      {docs
-        ? docs.map((doc) => {
+
+      {routes
+        ? routes.map((doc) => {
+          if (!doc.children.length) {
             return (
-              <LinkComponent
-                key={doc._id}
-                colorScheme={colorScheme}
-                href={doc.url}
-                title={doc.title}
-                active={router.asPath === doc.url}
-              />
-            );
-          })
-        : null}
+              <LinkComponent key={doc.name} colorScheme={colorScheme} active={router.asPath == doc.href!} title={doc.name} href={doc.href!} />
+            )
+          }
+          return (
+            <Accordion iconPosition="right" >
+              <Accordion.Item label={doc.name} >
+                {
+                  doc.children.map(child => {
+                    return (
+                      <LinkComponent key={child.name} colorScheme={colorScheme} active={router.asPath == child.href!} title={child.name} href={child.href!} />
+
+                    )
+                  })
+                }
+              </Accordion.Item>
+            </Accordion>
+          )
+        })
+        : (
+          <LoadingOverlay visible />
+        )}
       <Drawer
         opened={open}
         onClose={() => dispatch({ type: "TOGGLE", payload: { open: !open } })}
@@ -63,19 +96,31 @@ export function Sidebar() {
           >
             <FcSearch size={25} />
           </Button>
-          {docs
-            ? docs.map((doc) => {
+          {routes
+            ? routes.map((doc) => {
+              if (!doc.children.length) {
                 return (
-                  <LinkComponent
-                    key={doc._id}
-                    colorScheme={colorScheme}
-                    href={doc.url}
-                    title={doc.title}
-                    active={router.asPath === doc.url}
-                  />
-                );
-              })
-            : null}
+                  <LinkComponent key={doc.name} colorScheme={colorScheme} active={router.asPath == doc.href!} title={doc.name} href={doc.href!} />
+                )
+              }
+              return (
+                <Accordion iconPosition="right" >
+                  <Accordion.Item label={doc.name} >
+                    {
+                      doc.children.map(child => {
+                        return (
+                          <LinkComponent key={child.name} colorScheme={colorScheme} active={router.asPath == child.href!} title={child.name} href={child.href!} />
+
+                        )
+                      })
+                    }
+                  </Accordion.Item>
+                </Accordion>
+              )
+            })
+            : (
+              <LoadingOverlay visible />
+            )}
         </>
       </Drawer>
     </aside>
@@ -98,12 +143,10 @@ const LinkComponent: React.FC<LinkProps> = ({
   return (
     <Link href={href} passHref>
       <a
-        className={`${
-          styles[colorScheme === "dark" ? "darkLink" : "lightLink"]
-        } ${styles["docsLink"]} ${
-          active &&
+        className={`${styles[colorScheme === "dark" ? "darkLink" : "lightLink"]
+          } ${styles["docsLink"]} ${active &&
           styles[colorScheme === "dark" ? "darkActive" : "lightActive"]
-        }`}
+          }`}
       >
         {title}
       </a>

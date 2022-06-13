@@ -25,11 +25,17 @@
 .drawerMessage{
   display: none;
 }
+.hiddenForMobile{
+  display: initial;
+}
 @media screen and (max-width:1100px){
   .sidebarMessage{
     display: none;
   }
   .drawerMessage{
     display: initial;
+  }
+  .hiddenForMobile{
+    display: none;
   }
 }

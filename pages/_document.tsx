@@ -19,7 +19,6 @@ export default class _Document extends Document {
           <meta name="theme-color" content={'#' + Math.floor(Math.random() * 16777215).toString(16)} />
           <meta name="description" content="An Object Oriented Discord Api Wrapper for Deno." />
           <meta property='og:title' content='DenoCord' />
-          <meta property='og:description' content='An Object Oriented Discord Api Wrapper for Deno.' />
           <meta property='og:image' content='/images/denocord.png' />
           <meta property='og:url' content='https://denocord-docs.vercel.app/' />
           <meta property='og:type' content='website' />

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { allDocs, Docs } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { H3, H1, H2, H4, H5, H6, Callout } from "../../components/Common";
+import { H3, H1, H2, H4, H5, H6, Callout, CustomLink } from "../../components/Common";
 import styles from "./Slug.module.css";
 import { Footer } from "../../components";
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
@@ -12,7 +12,8 @@ const Components = {
   H4,
   H5,
   H6,
-  Callout
+  Callout,
+  Link: CustomLink
 };
 export async function getStaticPaths() {
   const paths = allDocs.map((doc) => doc.url);

@@ -1,0 +1,36 @@
+---
+title: Adding Options to Slash Commands
+description: Adding different options to slash commands to take Input from Users
+---
+
+Slash Commands support multiple Option Types:
+
+`Attachment`,`Boolean`,`Channel`,`Integer`,`Mentionable`,`Number`,`Role`,`String` and `User`.
+
+The Slash commands can also have `Sub Command` and `Sub Command Group` for nesting of Slash Command related to each other.
+
+<H2> Adding String Option To Slash Command</H2>
+
+```ts
+// snip
+
+const command = new SlashCommand()
+  .setName("ping")
+  .setDescription("Pong!")
+  .addStringOption((option) => {
+    return option
+      .setName("name")
+      .setDescription("What is Your name?")
+      .setRequired(true);
+  });
+```
+
+This will Give Output as:
+
+![Slash Command](/docs/slashCommandWithStringOption.png)
+
+
+Other options can be added in the same way. If you've any problem,Create a Discussion on [Github](https://github.com/DenoCord-labs/denocordTS/discussions/new)
+
+
+

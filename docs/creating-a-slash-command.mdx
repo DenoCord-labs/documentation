@@ -1,0 +1,62 @@
+---
+title: Creating a Slash Command
+description: Creating A Slash Command using DenocordTS.
+---
+
+Slash Command can be Created using `SlashCommand` class.
+
+Example:
+
+```ts
+import { SlashCommand } from "https://deno.land/x/denocordts/mod.ts";
+
+const command = new SlashCommand().setName("ping").setDescription("Pong");
+```
+
+<Callout>
+  The name of Slash Command and its options must match this Regex `/^[-_\p{L}\p
+  {N}\p{(sc = Devanagari)}\p{(sc = Thai)}]{(1, 32)}$/u`
+</Callout>
+
+<H3>Registering a Command</H3>
+
+There are two types of Slash Commands.
+
+- Guild Slash Commands
+- Global Slash Commands
+
+<H4>Guild Slash Commands</H4>
+These commands are best for testing, The appear almost instantly in Discord
+
+<H4>Global Slash Commands</H4>
+These commands are used when you're making your bot Public, These Commands takes
+upto an Hour to Show
+
+- Registering A Global SlashCommand
+
+```ts
+import { SlashCommand, Client } from "https://deno.land/x/denocordts/mod.ts";
+
+const client = new Client({
+  // options
+});
+const command = new SlashCommand().setName("ping").setDescription("Pong");
+
+await client.registerGlobalSlashCommands([command]);
+```
+
+- Registering a Guild Command
+
+```ts
+import { SlashCommand, Client } from "https://deno.land/x/denocordts/mod.ts";
+
+const client = new Client({
+  // options
+});
+const command = new SlashCommand().setName("ping").setDescription("Pong");
+
+await client.registerGuildSlashCommands({
+  commands: [command],
+  guildId: "762220138321674240", // Guild Id
+});
+```

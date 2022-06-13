@@ -29,7 +29,7 @@ export const Docs = defineDocumentType(() => ({
         order: {
             type: "number",
             description: "The Number at which this doc will be rendered",
-            required: true
+            required: false
         }
     },
     computedFields: {

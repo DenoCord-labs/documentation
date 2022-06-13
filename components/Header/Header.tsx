@@ -1,14 +1,27 @@
-import { useMantineColorScheme, Button } from "@mantine/core";
+import { useMantineColorScheme, Button, createStyles } from "@mantine/core";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import Link from "next/link";
-import { BsFillSunFill, BsFillMoonFill, BsGithub } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
 import { useContext } from "react";
 import { DrawerContext } from "../../context/Drawer";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { openSpotlight } from "@mantine/spotlight"
+import { FcSearch } from "react-icons/fc";
+
+const useStyle = createStyles((theme) => {
+  return {
+    button: {
+      ["@media only screen and (max-width:1100px)"]: {
+        display: "none"
+      }
+    }
+  }
+})
 
 export const Header: React.FC = () => {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { colorScheme, } = useMantineColorScheme();
+  const {classes} = useStyle()
   const {
     state: { open },
     dispatch
@@ -18,9 +31,8 @@ export const Header: React.FC = () => {
   return (
     <header>
       <div
-        className={`${styles["headerContainer"]} ${
-          styles[dark ? "darkContainer" : "lightContainer"]
-        }`}
+        className={`${styles["headerContainer"]} ${styles[dark ? "darkContainer" : "lightContainer"]
+          }`}
       >
         <Link passHref href="/">
           <div className={styles["logoContainer"]}>
@@ -29,6 +41,15 @@ export const Header: React.FC = () => {
           </div>
         </Link>
         <div className={styles["toggleColorSchemeContainer"]}>
+          <Button
+            variant="subtle"
+            onClick={() =>
+              openSpotlight()
+            }
+            className={classes.button}
+          >
+            <FcSearch size={25} />
+          </Button>
           <Link href="https://github.com/denocord-labs/denocordts">
             <a target="_blank">
               <Button variant="subtle">
