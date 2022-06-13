@@ -1,4 +1,5 @@
 import { useMantineColorScheme, Button, createStyles } from "@mantine/core";
+import Image from "next/image";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { BsGithub } from "react-icons/bs";
@@ -35,7 +36,7 @@ export const Header: React.FC = () => {
       >
         <Link passHref href="/">
           <div className={styles["logoContainer"]}>
-            <img src="/images/logo.png" width={60} height={60} />
+            <Image src="/images/logo.png" width={60} height={60} priority />
             <span>DenoCord</span>
           </div>
         </Link>
