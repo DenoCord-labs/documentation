@@ -17,11 +17,9 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        run: npm install 
+        run: yarn install --frozen-lockfile
       - name: Build website
-        run: npm run build
-      - name: Create Static Export
-        run: npm run export
+        run: yarn build
 
 
       - name: Deploy to GitHub Pages
