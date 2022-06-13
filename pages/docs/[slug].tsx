@@ -44,6 +44,7 @@ const DocLayout: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <div className={styles["container"]}>
       <Head>
         <title>{doc.title} - Denocord</title>
+        <meta property="og:description" content={doc.description} />
       </Head>
       <article className={`${styles["content"]}`}>
         <Component {...{ components: Components }} />
