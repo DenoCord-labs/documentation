@@ -35,7 +35,7 @@ export const Header: React.FC = () => {
       >
         <Link passHref href="/">
           <div className={styles["logoContainer"]}>
-            <img src="/images/logo.png" width={60} height={60} />
+            <img src="./images/logo.png" width={60} height={60} />
             <span>DenoCord</span>
           </div>
         </Link>
