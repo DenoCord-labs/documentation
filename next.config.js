@@ -1,5 +1,2 @@
 const { withContentlayer } = require('next-contentlayer')
-/**
- * @type {import("next").NextConfig}
- */
-module.exports = withContentlayer({ reactStrictMode: true, assetPrefix: "/documentation/", basePath: "/documentation/" })
+module.exports = withContentlayer({ reactStrictMode: true })
