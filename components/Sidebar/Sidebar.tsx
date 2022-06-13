@@ -34,7 +34,7 @@ export function Sidebar() {
   useEffect(() => {
 
     async function fetchData() {
-      const data = await fetch("/routes/data.json").catch(err => { })
+      const data = await fetch("./routes/data.json").catch(err => { })
       if (data) {
         const routesToRender = await data.json()
         setRoutes(routesToRender["routes"])
