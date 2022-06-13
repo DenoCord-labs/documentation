@@ -57,7 +57,7 @@ export function Sidebar() {
             )
           }
           return (
-            <Accordion iconPosition="right" >
+            <Accordion iconPosition="right" key={doc.name} >
               <Accordion.Item label={doc.name} >
                 {
                   doc.children.map(child => {
@@ -104,7 +104,7 @@ export function Sidebar() {
                 )
               }
               return (
-                <Accordion iconPosition="right" >
+                <Accordion iconPosition="right" key={doc.name} >
                   <Accordion.Item label={doc.name} >
                     {
                       doc.children.map(child => {
