@@ -24,7 +24,7 @@ export const Docs = defineDocumentType(() => ({
             type: "string",
             description: "The meta image of the document",
             required: false,
-            default: "./images/logo.png"
+            default: "/images/logo.png"
         },
         order: {
             type: "number",

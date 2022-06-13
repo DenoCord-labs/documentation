@@ -11,7 +11,7 @@ export default class _Document extends Document {
       <Html>
         <Head>
           <link rel="icon"
-            href="./images/logo.png"
+            href="/images/logo.png"
           />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -19,7 +19,7 @@ export default class _Document extends Document {
           <meta name="theme-color" content={'#' + Math.floor(Math.random() * 16777215).toString(16)} />
           <meta name="description" content="An Object Oriented Discord Api Wrapper for Deno." />
           <meta property='og:title' content='DenoCord' />
-          <meta property='og:image' content='./images/denocord.png' />
+          <meta property='og:image' content='/images/denocord.png' />
           <meta property='og:url' content='https://denocord-docs.vercel.app/' />
           <meta property='og:type' content='website' />
           <meta property='og:site_name' content='DenoCord' />
@@ -28,7 +28,7 @@ export default class _Document extends Document {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="DenoCord" />
           <meta name="twitter:description" content="An Object Oriented Discord Api Wrapper for Deno." />
-          <meta name="twitter:image" content="./images/denocord.png" />
+          <meta name="twitter:image" content="/images/denocord.png" />
           <meta name="twitter:image:alt" content="DenoCord" />
 
         </Head>
