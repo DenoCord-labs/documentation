@@ -2,4 +2,5 @@ const { withContentlayer } = require('next-contentlayer')
 /**
  * @type {import("next").NextConfig}
  */
-module.exports = withContentlayer({ reactStrictMode: true, assetPrefix: "/documentation/", basePath: "/documentation/" })
+const isProd = process.env.NODE_ENV === "production"
+module.exports = withContentlayer({ reactStrictMode: true, assetPrefix: isProd ? "/documentation" : "" })
