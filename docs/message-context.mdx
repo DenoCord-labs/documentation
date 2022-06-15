@@ -1,0 +1,23 @@
+---
+title: Context Menu
+description: Lets Create User and Message Context Menu Commands
+---
+
+These Context Menu Commands Look like This
+
+![User Context Menu](/docs/userContextMenu-Discord.png)
+
+<br />
+![Message Context Menu](/docs/messageContext-Discord.png)
+
+Source: Discord
+
+You can create these commands using the `ContextMenu` class
+
+```ts
+import { ContextMenu } from "https://deno.land/x/denocordts/mod.ts";
+
+const menu = new ContextMenu().setName("greet").setType("User");
+```
+
+Context Menu Commands can be registered in the same way Slash Commands are registered. Read <Link href="/docs/creating-a-slash-command#registering-a-command">Here</Link>

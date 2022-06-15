@@ -45,14 +45,24 @@
                     "href": "/docs/introduction-to-slash-command"
                 },
                 {
-                    "name":"Creating A Slash Command",
-                    "href":"/docs/creating-a-slash-command"
+                    "name": "Creating A Slash Command",
+                    "href": "/docs/creating-a-slash-command"
                 },
                 {
-                    "name":"Adding Options",
-                    "href":"/docs/adding-options-to-slash-command"
+                    "name": "Adding Options",
+                    "href": "/docs/adding-options-to-slash-command"
                 }
             ]
+        },
+        {
+            "name": "Context Menu",
+            "children": [],
+            "href": "/docs/message-context"
+        },
+        {
+            "name": "Receiving and Responding",
+            "children": [],
+            "href": "/docs/receiving-and-responding"
         }
     ]
 }

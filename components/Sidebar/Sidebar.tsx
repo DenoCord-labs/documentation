@@ -46,7 +46,9 @@ export function Sidebar() {
   return (
     <aside
       className={`${styles["container"]} ${styles[colorScheme === "dark" ? "darkContainer" : "lightContainer"]
-        }`}
+        }`} style={{
+          height: "100%"
+        }}
     >
 
       {routes
@@ -58,7 +60,10 @@ export function Sidebar() {
           }
           return (
             <Accordion iconPosition="right" key={doc.name} >
-              <Accordion.Item label={doc.name} >
+              <Accordion.Item label={doc.name} style={{
+                borderBottom: "none",
+                borderRadius: "10px"
+              }} >
                 {
                   doc.children.map(child => {
                     return (

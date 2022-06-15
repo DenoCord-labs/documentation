@@ -1,0 +1,85 @@
+---
+title: Receiving and Responding
+description: Receiving and Responding to Interactions
+---
+
+All Interactions like `Slash Commands` and `Context Menu` can be received by listening to the `CommandInteraction`.
+
+<Callout variant="danger">
+  You should not listen to `InteractionCreate` event, It is used internally and
+  will only emit during Component Interactions.
+</Callout>
+
+Reply to every `Slash Command`,`Context Menu` or `Component` interactions must be provided in 3 seconds, if your logic is taking more than that, you must defer the reply first, it will allow you to reply to the interaction within next 15 minutes.
+
+Example of Responding to an Interaction:
+
+```ts
+// snip
+
+client.on("CommandInteraction", async (interaction) => {
+  if (interaction.isCommand) {
+    await interaction.deferReply({ ephemeral: true });
+    setTimeout(async () => {
+      await interaction.editReply({
+        content: "This is reply after 3 seconds.",
+      });
+    }, 3000);
+  }
+});
+```
+
+<H3>Understanding the Code</H3>
+
+We're listening to `CommandInteraction` event
+
+```ts
+if(interaction.isCommand)
+```
+
+This line checks if the Interaction received is a Slash Command.
+The available options are:
+
+- `isCommand`
+- `isAutoComplete`
+- `isComponentInteraction`
+- `isMessageContextMenu`
+- `isModalSubmit`
+- `isUserContextMenu`
+
+```ts
+await interaction.deferReply({ ephemeral: true });
+```
+
+We're defering the reply to the interaction, it takes in an optional paramater(an object with a key `ephemeral` with value set to a boolean).
+
+If ephemeral is `true`, the message showing the loading state will be visible to the user who used the command. If ephemeral is `false`, the message with loading state will be shown to all users.
+You can't change the state of the message(change the ephemeral value) anywhere in the code,
+
+```ts
+setTimeout(async () => {
+  await interaction.editReply({
+    content: "This is reply after 3 seconds.",
+  });
+}, 3000);
+```
+
+We're replying to the above interaction after 3 seconds.
+
+
+<H2>Accessing the Value of Options from the Interaction Received</H2>
+
+You can access the value provided by the user from the interaction using methods listed below.
+
+- `getStringFromOption`
+- `getIntegerFromOption`
+- `getBooleanFromOption`
+- `getUserFromOption`
+- `getChannelFromOption`
+- `getRoleFromOption`
+- `getMentionableFromOption`
+- `getNumberFromOption`
+- `getAttachmentFromOption`
+
+Each of these methods take in name of the option.
+

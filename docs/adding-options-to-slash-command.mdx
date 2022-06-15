@@ -29,8 +29,22 @@ This will Give Output as:
 
 ![Slash Command](/docs/slashCommandWithStringOption.png)
 
-
 Other options can be added in the same way. If you've any problem,Create a Discussion on [Github](https://github.com/DenoCord-labs/denocordTS/discussions/new)
 
+You can also add choices to certain Slash Command Options like String etc.
 
-
+```ts
+const command = new SlashCommand()
+  .setName("ping")
+  .setDescription("Pong!")
+  .addStringOption((option) => {
+    return option
+      .setName("name")
+      .setDescription("What is Your name?")
+      .setRequired(true)
+      .addChoice({
+        name: "Unknown",
+        value: "Unknown",
+      });
+  });
+```
