@@ -8,7 +8,9 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Denocord - DenoCord</title>
+        <meta name='description' content='An Object Oriented Discord Api Wrapper for Deno.' />
         <meta property='og:description' content='An Object Oriented Discord Api Wrapper for Deno.' />
+        <meta name="twitter:description" content="An Object Oriented Discord Api Wrapper for Deno." />
       </Head>
       <div className={styles["container"]}>
         <div className={styles["imageContainer"]}>

@@ -1,0 +1,55 @@
+---
+title: Presence
+description: Change Presence of Your Bot
+---
+
+You can set your bot's presence to show some custom status, like `Watching x Servers` etc.
+
+```ts
+import { Client } from "https://deno.land/x/denocordts/mod.ts";
+
+const client = new Client({
+  /** Proper Options */
+});
+
+client.on("Ready", () => {
+  client.updatePresence({
+    activities: [
+      {
+        name: "DenoCord",
+        type: "Watching",
+      },
+    ],
+    status: "Online",
+  });
+});
+```
+
+<H3>Types</H3>
+```ts
+type PresencePayload = {
+    /**
+     * the user's activities
+     */
+    activities: {
+      name: string,
+      type: "Playing" | "Streaming" | "Listening" | "Watching" | "Custom" | "Competing",
+      url?: string
+    }[],
+    /**
+     * 	whether or not the client is afk
+     */
+    afk?: boolean
+    /**
+     * Client's New Status
+     */
+    status?: "Online" | "Offline" | "Invisible" | "Idle" | "DoNotDisturb"
+    /**
+     * unix time (in milliseconds) of when the client went idle, or null if the client is not idle
+     */
+    since?: number
+}
+
+```
+
+

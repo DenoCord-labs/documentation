@@ -1,68 +1,73 @@
 {
-    "routes": [
+  "routes": [
+    {
+      "name": "DenoCord",
+      "href": "/docs/Introduction",
+      "children": []
+    },
+    {
+      "name": "Prerequisites",
+      "href": "/docs/Prerequisites",
+      "children": []
+    },
+    {
+      "name": "Getting Started",
+      "href": "/docs/getting-started",
+      "children": []
+    },
+    {
+      "name": "Embeds",
+      "href": "/docs/Embed",
+      "children": []
+    },
+    {
+      "name": "Components",
+      "children": [
         {
-            "name": "DenoCord",
-            "href": "/docs/Introduction",
-            "children": []
+          "name": "Action Row",
+          "href": "/docs/action-rows"
         },
         {
-            "name": "Prerequisites",
-            "href": "/docs/Prerequisites",
-            "children": []
+          "name": "Buttons",
+          "href": "/docs/Button"
         },
         {
-            "name": "Getting Started",
-            "href": "/docs/getting-started",
-            "children": []
-        },
-        {
-            "name": "Embeds",
-            "href": "/docs/Embed",
-            "children": []
-        },
-        {
-            "name": "Components",
-            "children": [
-                {
-                    "name": "Action Row",
-                    "href": "/docs/action-rows"
-                },
-                {
-                    "name": "Buttons",
-                    "href": "/docs/Button"
-                },
-                {
-                    "name": "Select Menu",
-                    "href": "/docs/select-menu"
-                }
-            ]
-        },
-        {
-            "name": "Slash Commands",
-            "children": [
-                {
-                    "name": "Introduction",
-                    "href": "/docs/introduction-to-slash-command"
-                },
-                {
-                    "name": "Creating A Slash Command",
-                    "href": "/docs/creating-a-slash-command"
-                },
-                {
-                    "name": "Adding Options",
-                    "href": "/docs/adding-options-to-slash-command"
-                }
-            ]
-        },
-        {
-            "name": "Context Menu",
-            "children": [],
-            "href": "/docs/message-context"
-        },
-        {
-            "name": "Receiving and Responding",
-            "children": [],
-            "href": "/docs/receiving-and-responding"
+          "name": "Select Menu",
+          "href": "/docs/select-menu"
         }
-    ]
+      ]
+    },
+    {
+      "name": "Slash Commands",
+      "children": [
+        {
+          "name": "Introduction",
+          "href": "/docs/introduction-to-slash-command"
+        },
+        {
+          "name": "Creating A Slash Command",
+          "href": "/docs/creating-a-slash-command"
+        },
+        {
+          "name": "Adding Options",
+          "href": "/docs/adding-options-to-slash-command"
+        }
+      ]
+    },
+    {
+      "name": "Context Menu",
+      "children": [],
+      "href": "/docs/message-context"
+    },
+    {
+      "name": "Receiving and Responding",
+      "children": [],
+      "href": "/docs/receiving-and-responding"
+    },
+    {
+      "name": "Presence",
+      "children": [],
+      "href": "/docs/presence"
+    }
+  ]
 }
