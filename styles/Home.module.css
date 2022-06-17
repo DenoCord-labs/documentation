@@ -22,20 +22,23 @@
   height: 100vh;
 }
 
-.drawerMessage{
+.drawerMessage {
   display: none;
 }
-.hiddenForMobile{
+.hiddenForMobile {
   display: initial;
 }
-@media screen and (max-width:1100px){
-  .sidebarMessage{
+@media screen and (max-width: 1100px) {
+  .sidebarMessage {
     display: none;
   }
-  .drawerMessage{
+  .drawerMessage {
     display: initial;
   }
-  .hiddenForMobile{
+  .hiddenForMobile {
     display: none;
+  }
+  .content {
+    width: 98%;
   }
 }

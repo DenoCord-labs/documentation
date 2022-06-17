@@ -24,7 +24,7 @@ Router.events.on("routeChangeError", () => Nprogress.done());
 const Sidebar = dynamic(
   // @ts-ignore
   () => import("../components/Sidebar/Sidebar").then((mod) => mod.Sidebar),
-  { ssr: false }
+  { ssr: false, loading: () => <span>Loading ...</span> }
 );
 export default function App({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("dark");

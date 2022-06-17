@@ -15,7 +15,7 @@ export default class _Document extends Document {
           />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-          <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Roboto&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Cantarell&family=Roboto&family=JetBrains+Mono&display=swap" rel="stylesheet" />
           <meta name="theme-color" content={'#' + Math.floor(Math.random() * 16777215).toString(16)} />
           <meta name="description" content="An Object Oriented Discord Api Wrapper for Deno." />
           <meta property='og:title' content='DenoCord' />

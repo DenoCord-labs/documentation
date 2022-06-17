@@ -45,9 +45,9 @@ const DocLayout: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <Head>
         <title>{doc.title} - Denocord</title>
       </Head>
-      <article className={`${styles["content"]}`}>
+      <div className={`${styles["content"]}`}>
         <Component {...{ components: Components }} />
-      </article>
+      </div>
       <Footer />
     </div>
   );

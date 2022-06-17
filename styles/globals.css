@@ -18,7 +18,7 @@ a {
   box-sizing: border-box;
 }
 
-li{
+li {
   margin-bottom: 7px;
 }
 /*
@@ -41,6 +41,9 @@ hue-6-2: #e6c07b
 
 */
 
+pre {
+  font-family: "JetBrains Mono", monospace !important;
+}
 pre > code.hljs {
   display: block;
   overflow-x: auto;
@@ -51,6 +54,7 @@ code {
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 2px;
+  font-family: "JetBrains Mono", monospace !important;
 }
 code.hljs {
   padding: 3px 5px;
