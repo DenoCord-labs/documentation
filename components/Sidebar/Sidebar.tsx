@@ -4,7 +4,6 @@ import {
   Drawer,
   Button,
   ColorScheme,
-  Box,
   LoadingOverlay,
   Accordion
 } from "@mantine/core";
@@ -14,7 +13,7 @@ import { useRouter } from "next/router";
 import { useEffect, useContext, useState } from "react";
 import { DrawerContext } from "../../context/Drawer";
 import { FcSearch } from "react-icons/fc";
-
+const isProd = process.env.NODE_ENV === "production"
 
 type Routes = {
   name: string,
@@ -34,7 +33,7 @@ export function Sidebar() {
   useEffect(() => {
 
     async function fetchData() {
-      const data = await fetch("/routes/data.json").catch(err => { })
+      const data = await fetch(isProd ? "https://denocord-labs.github.io/documentation/routes/data.json" : "/routes/data.json").catch(err => { })
       if (data) {
         const routesToRender = await data.json()
         setRoutes(routesToRender["routes"])
