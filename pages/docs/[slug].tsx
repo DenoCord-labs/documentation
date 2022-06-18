@@ -5,6 +5,18 @@ import { H3, H1, H2, H4, H5, H6, Callout, CustomLink } from "../../components/Co
 import styles from "./Slug.module.css";
 import { Footer } from "../../components";
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import { FC, PropsWithChildren } from "react"
+
+const isProd = process.env.NODE_ENV === "production"
+
+const img: FC<PropsWithChildren<{ src: string }>> = (props) => {
+  if (isProd) {
+    return <img src={`https://denocord-docs.vercel.app/documentation/${props.src}`} />
+  }
+  return <img src={`${props.src}`} />
+
+}
+
 const Components = {
   H1,
   H2,
@@ -13,7 +25,8 @@ const Components = {
   H5,
   H6,
   Callout,
-  Link: CustomLink
+  Link: CustomLink,
+  img
 };
 export async function getStaticPaths() {
   const paths = allDocs.map((doc) => doc.url);
