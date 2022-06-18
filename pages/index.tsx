@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       </Head>
       <div className={styles["container"]}>
         <div className={styles["imageContainer"]}>
-          <img src="/images/logo.png" />
+          <img src="https://denocord-labs.github.io/documentation/images/logo.png" />
         </div>
         <div className={styles["content"]}>
           <h3>This Site contains the latest documentation for DenoCord.</h3>
