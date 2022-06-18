@@ -11,7 +11,7 @@ const isProd = process.env.NODE_ENV === "production"
 
 const img: FC<PropsWithChildren<{ src: string }>> = (props) => {
   if (isProd) {
-    return <img src={`https://denocord-docs.vercel.app/documentation/${props.src.includes("/docs") ? props.src.replace("/docs", "/assets") : props.src}`} />
+    return <img src={`https://raw.githubusercontent.com/DenoCord-labs/documentation/gh-pages/${props.src.includes("/docs") ? props.src.replace("/docs", "/assets") : props.src}`} />
   }
   return <img src={`${props.src.includes("/docs") ? props.src.replace("/docs", "/assets") : props.src}`} />
 
