@@ -1,0 +1,49 @@
+---
+title: Modal
+description: Creating Modal using Denocord
+---
+
+Since the release of Slash commads, developers find it difficult to take long input from users.
+
+Modals is used to solve this problem.
+
+Modal allows you to take input of maximum 4000 characters. 
+
+![Modal](/docs/modalFromDiscord.png)
+
+Source:Discord
+
+
+<H4>Code Example</H4>
+
+```ts
+import {Modal,TextInput} from "https://deno.land/x/denocordts/mod.ts"
+
+const modal = new Modal();
+    modal
+      .setTitle("Test Modal")
+      .setCustomId("modal")
+      .addComponents(
+        new TextInput()
+          .setCustomId("test")
+          .setLabel("Hmmm")
+          .setRequired(true)
+          .setPlaceholder("Testing Goes brrr")
+          .setStyle("Short")
+      );
+    await interaction.showModal(modal);
+```
+
+Modals can only be shown by `showModal` method present on `ApplicationCommandInteraction` and `ComponentInteraction` class.
+
+To receive Modal interactions you should listen to `CommandInteraction` event and check for `interaction.isModalSubmit`, You should close the modal manually by using `closeModal` method, the `interaction.getModalValues()` will provide you with all the details users submitted in the format given below
+
+```ts
+type ModalValues = {
+    customId:string,
+    type:number,
+    value:string
+}[]
+```
+The `interaction.getModalValues()` will provide you with an array of values, this will follow the order of the `TextInput` components supplied to `Modal.addComponents`. The `value` will contain the content supplied by the user.
+

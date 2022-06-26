@@ -68,6 +68,11 @@
       "name": "Presence",
       "children": [],
       "href": "/docs/presence"
+    },
+    {
+      "name": "Modal",
+      "children": [],
+      "href": "/docs/modal"
     }
   ]
 }

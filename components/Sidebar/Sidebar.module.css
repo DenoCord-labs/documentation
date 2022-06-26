@@ -3,8 +3,7 @@
   padding-right: 1rem;
   padding-left: 1rem;
   overflow-y: scroll;
-  max-height: 100vh;
-  height: 100vh;
+  height: 100%;
   width: 25%;
 }
 .darkContainer {
